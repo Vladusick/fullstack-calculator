@@ -2,10 +2,7 @@ package calculator.fullstack.controllers;
 
 import calculator.fullstack.dto.CalculatorDto;
 import calculator.fullstack.services.CalculatorService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 // todo
 // доделать работу с базой, ексепшены, памминг из сущности в ДТОшку
@@ -13,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 // сделать дробный, замеить интеджер на флоат или дабл
 // деление на ноль исправить
 
+@CrossOrigin
 @RestController
 @RequestMapping("api/v1/")
 public class CalculatorController {
