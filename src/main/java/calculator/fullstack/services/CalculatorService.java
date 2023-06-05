@@ -1,12 +1,20 @@
 package calculator.fullstack.services;
 
 import calculator.fullstack.dto.CalculatorDto;
+import calculator.fullstack.entities.CalculatorEntity;
+import calculator.fullstack.repositories.CalculatorRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CalculatorService {
 
-    //тут потом заинжектить репу надо будет, когда буду делать подключение к базе
+    CalculatorRepository calculatorRepository;
+
+    public CalculatorService(CalculatorRepository calculatorRepository) {
+        this.calculatorRepository = calculatorRepository;
+    }
 
     public CalculatorDto addition(Integer a, Integer b) {
         return new CalculatorDto(a, b, "addition", a + b);
@@ -22,5 +30,9 @@ public class CalculatorService {
 
     public CalculatorDto division(Integer a, Integer b) {
         return new CalculatorDto(a, b, "division", a / b);
+    }
+
+    public List<CalculatorEntity> findAll() {
+        return calculatorRepository.findAll();
     }
 }
