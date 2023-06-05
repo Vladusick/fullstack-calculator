@@ -4,11 +4,15 @@ import calculator.fullstack.dto.CalculatorDto;
 import calculator.fullstack.services.CalculatorService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 // todo
 // доделать работу с базой, ексепшены, памминг из сущности в ДТОшку
 // (required = false) - необязательный параметр делает, тру - делает обязательным, он по умолчаню тру
 // сделать дробный, замеить интеджер на флоат или дабл
 // деление на ноль исправить
+// добавить логгирование
 
 @CrossOrigin
 @RestController
@@ -38,5 +42,13 @@ public class CalculatorController {
     @GetMapping("/div")
     public CalculatorDto division(@RequestParam Integer a, @RequestParam Integer b) {
         return calculatorService.division(a, b);
+    }
+
+    @GetMapping("/history")
+    public List<CalculatorDto> getHistory() {
+    return calculatorService.findAll()
+            .stream()
+            .map(c -> new CalculatorDto(c))
+            .collect(Collectors.toList());
     }
 }

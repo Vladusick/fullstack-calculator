@@ -63,6 +63,14 @@ function App() {
     setNumberB(0)
   }
 
+  // выводит в консоль историю
+  const pullHistory = async () => {
+    await fetch(url + `history`)
+      .then(response => response.json())
+      .then(data => console.log(data)
+      )
+  }
+
   return (
     <div className="App">
       <h3>
@@ -79,6 +87,8 @@ function App() {
       <button onClick={subtractionHandler}>-</button>
       <button onClick={multiplicationHandler}>*</button>
       <button onClick={divisionHandler}>/</button>
+      <hr />
+      <button onClick={pullHistory}>Посмотреть историю в консоли</button>
       <p>Результат: {result.result}</p>
     </div>
   );
