@@ -20,6 +20,12 @@ public class CalculatorEntity {
     @Column(name = "id")
     private Integer id;
 
+    @Column(name = "number_A")
+    private Integer numberA;
+
+    @Column(name = "number_B")
+    private Integer numberB;
+
     @Column(name = "operation")
     private String operation;
 
@@ -28,4 +34,13 @@ public class CalculatorEntity {
 
     @Column(name = "secret_key")
     private String secretKey;
+
+    public CalculatorEntity(Integer numberA, Integer numberB, String operation, Integer result) {
+        this.numberA = numberA;
+        this.numberB = numberB;
+        this.operation = operation;
+        this.result = result;
+    }
 }
+
+

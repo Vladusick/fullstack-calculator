@@ -23,6 +23,8 @@ public class CalculatorDto {
     // id нам не нужен, не передавай его на фронт. Или измени модель данных, чтобы отправлять его на фронт
     public CalculatorDto(CalculatorEntity calculatorEntity) {
         //this.id = calculatorEntity.getId();
+        this.numberA = calculatorEntity.getNumberA();
+        this.numberB = calculatorEntity.getNumberB();
         this.operationName = calculatorEntity.getOperation();
         this.result = calculatorEntity.getResult();
     }

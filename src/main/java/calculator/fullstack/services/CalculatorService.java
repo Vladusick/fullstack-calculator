@@ -16,20 +16,28 @@ public class CalculatorService {
         this.calculatorRepository = calculatorRepository;
     }
 
-    public CalculatorDto addition(Integer a, Integer b) {
-        return new CalculatorDto(a, b, "addition", a + b);
+    public CalculatorEntity addition(Integer a, Integer b) {
+        CalculatorEntity calculatorEntity = new CalculatorEntity(a, b, "addition", a + b);
+        calculatorRepository.save(calculatorEntity);
+        return calculatorEntity;
     }
 
-    public CalculatorDto subtraction(Integer a, Integer b) {
-        return new CalculatorDto(a, b, "subtraction", a - b);
+    public CalculatorEntity subtraction(Integer a, Integer b) {
+        CalculatorEntity calculatorEntity = new CalculatorEntity(a, b, "subtraction", a - b);
+        calculatorRepository.save(calculatorEntity);
+        return calculatorEntity;
     }
 
-    public CalculatorDto multiplication(Integer a, Integer b) {
-        return new CalculatorDto(a, b, "multiplication", a * b);
+    public CalculatorEntity multiplication(Integer a, Integer b) {
+        CalculatorEntity calculatorEntity = new CalculatorEntity(a, b, "multiplication", a * b);
+        calculatorRepository.save(calculatorEntity);
+        return calculatorEntity;
     }
 
-    public CalculatorDto division(Integer a, Integer b) {
-        return new CalculatorDto(a, b, "division", a / b);
+    public CalculatorEntity division(Integer a, Integer b) {
+        CalculatorEntity calculatorEntity = new CalculatorEntity(a, b, "division", a / b);
+        calculatorRepository.save(calculatorEntity);
+        return calculatorEntity;
     }
 
     public List<CalculatorEntity> findAll() {
